@@ -1,13 +1,17 @@
-import * as React from 'react';
-import { Component } from 'React';
-import { render } from 'React-dom';
+import React, { PureComponent } from 'react'
+import { render } from 'react-dom'
+import App from './app'
+interface IAppProps {}
+interface IAppState {}
 
-class HelloMessage extends Component {
-  render() {
-    return <div> Hello </div>;
-  }
+class Index extends PureComponent < IAppProps, IAppState > {
+    public render(): JSX.Element {
+        return (
+            <div>
+       	<App/>
+      </div>
+        )
+    }
 }
 
-var HelloDom = document.getElementById('rootDom');
-
-render(<HelloMessage/>,HelloDom);
+render(<Index />, document.getElementById('reactDom'))
