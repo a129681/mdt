@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import { render } from 'react-dom'
 import App from './app'
+import './index.scss'
 interface IAppProps {}
 interface IAppState {}
 

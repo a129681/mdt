@@ -1,0 +1,9 @@
+
+$rootDom:reactDom;
+$color:red;
+
+#reactDom{
+	&-dist{
+		background:$color;
+	}
+}
