@@ -1,6 +1,7 @@
 const path = require("path");
 const htmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+var WebpackBundleSizeAnalyzerPlugin = require('webpack-bundle-size-analyzer').WebpackBundleSizeAnalyzerPlugin;
 const config = {
 
     entry: "./src/index.tsx",
@@ -21,24 +22,26 @@ const config = {
             use: {
                 loader: 'ts-loader'
             }
-        },{
-            test:/\.scss$/,
-            use:ExtractTextPlugin.extract({
-              fallback: 'style-loader',
-              use: ['css-loader', 'sass-loader']
-        })
-        },{
+        }, {
+            test: /\.scss$/,
+            use: ExtractTextPlugin.extract({
+                fallback: 'style-loader',
+                use: ['css-loader', 'sass-loader']
+            })
+        }, {
             test: /\.(png|jpg|gif)$/,
-            use: [
-              {
+            use: [{
                 loader: 'file-loader'
-              }
-            ]
-          }]
+            }]
+        }]
     },
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.json']
     },
-    plugins: [new htmlWebpackPlugin({ filename: 'index.html', template: './index.html' }),new ExtractTextPlugin('style.css')]
+    plugins: [
+        new htmlWebpackPlugin({ filename: 'index.html', template: './index.html' }),
+        new ExtractTextPlugin('style.css'),
+        new WebpackBundleSizeAnalyzerPlugin(path.resolve(__dirname, 'dist/report.txt'))
+    ]
 };
 module.exports = config;

@@ -6,7 +6,7 @@ interface IAppProps {}
 interface IAppState {}
 
 class Index extends PureComponent < IAppProps, IAppState > {
-    public render(): JSX.Element {
+    public render() {
         return (
             <div>
        	<App/>
@@ -15,4 +15,4 @@ class Index extends PureComponent < IAppProps, IAppState > {
     }
 }
 
-render(<Index />, document.getElementById('reactDom'))
+render(<Index />, document.getElementById('rootDom'))

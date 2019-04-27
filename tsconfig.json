@@ -10,10 +10,12 @@
         "moduleResolution": "node",
         "noImplicitReturns": true,
         //将这个属性的值设置为 true，它允许你使用 ES2015 默认的 imports 风格, 即使你导入的代码没有使用 ES2015 默认的 export。
-        "allowSyntheticDefaultImports":true,
+        "allowSyntheticDefaultImports": true,
         "noImplicitThis": true,
         "noImplicitAny": true,
         "strictNullChecks": true,
+        // allowSyntheticDefaultImports 设置后也要设置esModuleInterop
+        "esModuleInterop": true
     },
     "include": [
         "./src"
