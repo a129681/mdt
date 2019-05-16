@@ -1,0 +1,33 @@
+.mdt-dropdown {
+    position: relative;
+    transition: 0.5s;
+    display: inline-block;
+    border-radius: 2px;
+    box-sizing: border-box;
+  
+    &-panel {
+      position: absolute;
+      box-sizing: border-box;
+      z-index: 10;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      background: #fff;
+      border-radius: 4px;
+      margin-top: 6px;
+      border-radius: 4px;
+    }
+    &-arrow {
+      &:after {
+        position: absolute;
+        left: 50%;
+        margin-left: -4px;
+        top: -5px;
+        content: '';
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 5px solid #999;
+      }
+    }
+  }
+  
