@@ -2,6 +2,8 @@ const webpackMerge = require('webpack-merge');
 const baseConfig = require('../webpack.config.base.js');
 const webpack = require('webpack');
 const path = require("path");
+const { prompt } = require('enquirer');
+
 const config = {
     mode: 'development',
     plugins: [new webpack.HotModuleReplacementPlugin()],

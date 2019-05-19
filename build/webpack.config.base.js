@@ -5,6 +5,7 @@ var WebpackBundleSizeAnalyzerPlugin = require('webpack-bundle-size-analyzer').We
 const config = {
 
     entry: "./src/index.tsx",
+
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist')
@@ -35,6 +36,7 @@ const config = {
             }]
         }]
     },
+  
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.json']
     },
