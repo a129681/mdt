@@ -50,7 +50,7 @@ export default class Select extends Component<IProps> {
     )
   }
 
-  clickHandler = event => {
+  clickHandler = (event:any) => {
     const { onChange } = this.props
     if (this._container.contains(event.target)) {
       return

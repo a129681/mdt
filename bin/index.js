@@ -12,7 +12,7 @@ function getComponentsName(globPath){
     const filePathNames = file.split("/");
     entries.push({
       name:filePathNames[filePathNames.length-1],
-      pathName:file+"/index.tsx"
+      pathName:file
     })
   })
   return entries
@@ -22,23 +22,30 @@ let entries = getComponentsName(path.join(__dirname,"../components/+(*)"));
 const prompt = new Select({
   name: 'components',
   message: 'Pick a compoents',
-  choices: entries.map((v)=>{return v.name})
+  choices: entries.map((v)=>{
+    return v.name
+  })
 });
 // entries.map((v)=>{return v.name})
 prompt.run()
   .then((answer)=>{
+    const comptDemoPath = answer+'/demo'
     baseConfig.mode = 'development'
+    baseConfig.plugins.push(new webpack.DefinePlugin({
+      COMPONENTNAME:JSON.stringify(answer),
+      COMPONENTPATH:JSON.stringify(comptDemoPath)
+    }))
     const options = {
       contentBase: path.join(__dirname, "../build/dist"),
       hot: true,
       host: 'localhost',
       open:true,
-      stats: "errors-only"
+      stats:"errors-only"
     };
-    webpackDevServer.addDevServerEntrypoints(baseConfig, options);
+   // webpackDevServer.addDevServerEntrypoints(baseConfig, options);
     const compiler = webpack(baseConfig);
     const server = new webpackDevServer(compiler, options);
-    server.listen(6000, 'localhost', (err) => {
+    server.listen(9000, '127.0.0.1', (err) => {
      if(err){
        console.log(err)
      }

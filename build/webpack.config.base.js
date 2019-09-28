@@ -38,7 +38,10 @@ const config = {
     },
   
     resolve: {
-        extensions: ['.ts', '.tsx', '.js', '.json']
+        extensions: ['.ts', '.tsx', '.js', '.json'],
+        alias:{
+            "Root": "../components"
+        }
     },
     plugins: [
         new htmlWebpackPlugin({ filename: 'index.html', template: './index.html' }),

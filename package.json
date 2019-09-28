@@ -2,8 +2,8 @@
   "name": "mdt",
   "version": "1.0.0",
   "main": "index.js",
-  "bin":{
-   "test":"./bin/index.js" 
+  "bin": {
+    "test": "./bin/index.js"
   },
   "scripts": {
     "select": "node ./bin/index.js",
