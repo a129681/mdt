@@ -9,7 +9,7 @@
     "select": "node ./bin/index.js",
     "new": "node ./bin/new.js",
     "dev": "webpack-dev-server --config build/dev/webpack.config.dev.js",
-    "build": "webpack --config build/prod/webpack.config.prod.js",
+    "build": "node ./bin/build.js",
     "test": "node ./bin/test.js"
   },
   "repository": {
